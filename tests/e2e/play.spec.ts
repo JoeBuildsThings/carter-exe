@@ -35,7 +35,9 @@ test("a winning run unlocks the letter", async ({ page }) => {
   ];
 
   for (let index = 0; index < correctPicks.length; index += 1) {
-    await page.getByRole("button", { name: new RegExp(correctPicks[index], "i") }).click();
+    await page
+      .getByRole("button", { name: new RegExp(correctPicks[index], "i") })
+      .click();
 
     await page
       .getByRole("button", {
@@ -54,7 +56,9 @@ test("a winning run unlocks the letter", async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: /a note from joseph/i }),
   ).toBeVisible();
-  await expect(page.getByText(/refurbished lenovo thinkpad t14 gen 2 amd/i)).toBeVisible();
+  await expect(
+    page.getByText(/refurbished lenovo thinkpad t14 gen 2 amd/i),
+  ).toBeVisible();
   await expect(
     page.getByRole("link", { name: /review the laptop details/i }),
   ).toHaveAttribute("href", "/support/");
@@ -71,9 +75,16 @@ test("a lost run can still open the letter", async ({ page }) => {
     "Monitor resolution",
   ];
 
-  for (const pick of wrongPicks) {
-    await page.getByRole("button", { name: new RegExp(pick, "i") }).click();
-    await page.getByRole("button", { name: /see your result/i }).click();
+  for (let index = 0; index < wrongPicks.length; index += 1) {
+    await page
+      .getByRole("button", { name: new RegExp(wrongPicks[index], "i") })
+      .click();
+
+    await page
+      .getByRole("button", {
+        name: index === wrongPicks.length - 1 ? /see your result/i : /continue/i,
+      })
+      .click();
   }
 
   await expect(
