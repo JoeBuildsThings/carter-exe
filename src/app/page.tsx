@@ -74,7 +74,7 @@ export default function HomePage() {
               </div>
             </div>
             <p className="arena-scoreboard-foot">
-              TWO CREATOR ROUTES ARE OPEN. MORE CAN JOIN THE LINEUP.
+              TWO DISTINCT MODES ARE OPEN. MORE CREATORS CAN JOIN THE LINEUP.
             </p>
           </aside>
         </div>
@@ -97,9 +97,9 @@ export default function HomePage() {
             </h2>
           </div>
           <p>
-            Each creator gets a separate edition of the same challenge.
-            The lineup is data-driven, so new creator routes can be added
-            without rebuilding the game engine.
+            Each creator gets a distinct challenge bank and route. The lineup is
+            data-driven, so new creator editions can join without duplicating
+            the game engine.
           </p>
         </div>
 
@@ -117,7 +117,7 @@ export default function HomePage() {
                 {creator.initial}
               </div>
               <div className="arena-card-copy">
-                <p>{creator.category}</p>
+                <p>{creator.category} / {creator.modeTitle}</p>
                 <h3>{creator.name}</h3>
                 <span>{creator.description}</span>
               </div>
@@ -148,9 +148,9 @@ export default function HomePage() {
             <span>01 / THE EXPERIENCE</span>
             <h3>Give PC communities something to play.</h3>
             <p>
-              The challenge comes first. Six timed hardware decisions,
-              instant feedback, a score, and a result that makes sense
-              whether you win or lose.
+              The challenge comes first. Each creator has a purpose-built six-round
+              mode, timed decisions, instant feedback, a score and a result
+              worth sharing.
             </p>
             <Link href="/play">
               Enter the arcade <span aria-hidden="true">↗</span>

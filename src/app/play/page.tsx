@@ -5,7 +5,7 @@ import { creatorRoster } from "@/lib/creators";
 export const metadata: Metadata = {
   title: "Choose a Creator",
   description:
-    "Choose a CarterPCs or KayJayOhPCs edition and play the independent Bench Rush PC hardware challenge.",
+    "Choose a creator-specific PC and tech challenge with original question banks inspired by the public work of CarterPCs and KayJayOhPCs.",
 };
 
 export default function PlayPage() {
@@ -26,9 +26,9 @@ export default function PlayPage() {
           <span>player.</span>
         </h1>
         <p>
-          Choose a creator edition. Every route runs the same six-round
-          hardware challenge, with its own creator identity and public
-          profile link.
+          Two creators, two different challenge banks. Take Carter's
+          everyday PC and tech quickfire, or step into KayJay's custom-build
+          lab where fit, airflow and power decisions matter.
         </p>
       </section>
 
@@ -49,9 +49,10 @@ export default function PlayPage() {
               {creator.initial}
             </div>
             <div className="creator-card-copy">
-              <p className="creator-card-kicker">{creator.category}</p>
+              <p className="creator-card-kicker">{creator.category} / {creator.modeTitle}</p>
               <h2>{creator.name}</h2>
               <p>{creator.description}</p>
+              <p className="creator-mode-summary">{creator.modeDescription}</p>
             </div>
             <div className="creator-route-actions">
               <Link
@@ -68,6 +69,14 @@ export default function PlayPage() {
                 rel="noreferrer"
               >
                 Public profile: {creator.handle} <span aria-hidden="true">↗</span>
+              </a>
+              <a
+                className="creator-profile-link"
+                href={creator.contextUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Creator background / Micro Center <span aria-hidden="true">↗</span>
               </a>
             </div>
           </article>

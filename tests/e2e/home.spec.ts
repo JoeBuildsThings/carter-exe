@@ -13,7 +13,7 @@ test("homepage presents an independent multi-creator arcade", async ({ page }) =
 
   await expect(
     page.getByRole("link", { name: /choose your creator/i }),
-  ).toHaveAttribute("href", "/play");
+  ).toHaveAttribute("href", "/play/");
 
   await expect(
     page.getByRole("heading", { name: /choose your creator route/i }),
@@ -32,7 +32,7 @@ test("navigation keeps creator selection, support and hiring separate", async ({
 
   const nav = page.getByRole("navigation", { name: "Main navigation" });
 
-  await expect(nav.getByRole("link", { name: "Creators" })).toHaveAttribute("href", "/play");
+  await expect(nav.getByRole("link", { name: "Creators" })).toHaveAttribute("href", "/play/");
   await expect(nav.getByRole("link", { name: "Laptop support" })).toHaveAttribute("href", "/support");
   await expect(nav.getByRole("link", { name: "Hire" })).toHaveAttribute("href", "/hire");
 });
@@ -46,8 +46,11 @@ test("support page explains the target machine and safe support options", async 
 
   await expect(page.getByText(/Ryzen 5 PRO 5650U/i).first()).toBeVisible();
   await expect(page.getByText(/16GB soldered DDR4-3200/i)).toBeVisible();
-  await expect(page.getByText(/no payment form/i)).toBeVisible();
+  await expect(page.getByText(/there is no payment form/i)).toBeVisible();
   await expect(page.getByText(/any featured creator/i)).toBeVisible();
+  await expect(page.getByRole("heading", { name: /not a project that exists only on paper/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /inspect source/i }).first()).toHaveAttribute("href", "https://github.com/JoeBuildsThings/NetRecon");
+  await expect(page.getByRole("link", { name: /message me on linkedin/i })).toHaveAttribute("href", "https://www.linkedin.com/in/joseph-ayomide-adebiyi-5bb66844b/");
 
   await expect(
     page.getByRole("link", { name: /official specification record/i }),

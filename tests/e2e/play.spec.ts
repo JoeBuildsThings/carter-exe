@@ -15,6 +15,10 @@ test("visitors can choose between both accurately named creator editions", async
     page.getByRole("link", { name: /play the kayjayohpcs edition/i }),
   ).toHaveAttribute("href", "/play/kayjayohpcs/");
 
+  await expect(page.getByText(/Tech Quickfire/i)).toBeVisible();
+  await expect(page.getByText(/Odd Build Lab/i)).toBeVisible();
+  await expect(page.getByRole("link", { name: /creator background \/ micro center/i }).first()).toHaveAttribute("href", /microcenter\.com/);
+
   await expect(
     page.getByRole("link", { name: /public profile: @kayjayohpcs/i }),
   ).toHaveAttribute("href", "https://www.tiktok.com/@kayjayohpcs");
@@ -40,7 +44,7 @@ test("a winning run unlocks the letter", async ({ page }) => {
 
   for (let index = 0; index < correctPicks.length; index += 1) {
     await page
-      .getByRole("button", { name: new RegExp(correctPicks[index], "i") })
+      .getByRole("button", { name: new RegExp(correctPicks[index].replace(/[()]/g, "\\$&"), "i") })
       .click();
 
     await page
@@ -53,6 +57,8 @@ test("a winning run unlocks the letter", async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: /the bench is ready/i }),
   ).toBeVisible();
+
+  await expect(page.getByRole("button", { name: /share result/i })).toBeVisible();
 
   await page.getByRole("button", { name: /open the letter/i }).click();
 
@@ -75,12 +81,15 @@ test("a lost KayJayOhPCs run can still open the letter", async ({ page }) => {
     page.getByRole("heading", { name: /kayjayohpcs challenge/i }),
   ).toBeVisible();
 
+  await expect(page.getByRole("heading", { name: /Odd Build Lab/i })).toBeVisible();
   await page.getByRole("button", { name: /start the challenge/i }).click();
 
+  await expect(page.getByRole("heading", { name: /A gaming PC is going inside a car tire/i })).toBeVisible();
+
   const wrongPicks = [
-    "Mechanical hard drive",
-    "Screen refresh rate",
-    "Monitor resolution",
+    "Seal every opening to keep dust out",
+    "Only the radiator's advertised length",
+    "Only the GPU's display outputs",
   ];
 
   for (let index = 0; index < wrongPicks.length; index += 1) {

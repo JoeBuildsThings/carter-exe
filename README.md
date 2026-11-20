@@ -19,14 +19,14 @@ Creator details and links are kept in src/lib/creators.ts, separate from the reu
 ## Current features
 
 - /play: choose a creator edition.
-- /play/carterpcs: CarterPCs edition of Bench Rush.
-- /play/kayjayohpcs: KayJayOhPCs edition of Bench Rush.
+- /play/carterpcs: CarterPCs Tech Quickfire, with six everyday PC hardware decisions.
+- /play/kayjayohpcs: KayJayOhPCs Odd Build Lab, with six custom-build fit, airflow, power and safety scenarios.
 - /support: development-laptop specifications, inspection guidance, and direct support options.
 - /hire: separate information for paid development enquiries.
 
-Bench Rush contains six timed PC hardware decisions, accessible touch and keyboard controls, answer feedback, a three-strike limit, and a clear result. The optional letter can be opened after either a win or a loss. There is no payment collection.
+Each creator route has its own six-question bank. Both modes have timed decisions, touch and keyboard controls, answer explanations, a three-strike limit, score sharing, and a clear result. The optional laptop-support letter can be opened after either a win or a loss. There is no payment collection.
 
-The PC compatibility checker and sourced creator dossier remain planned. They will not be represented as complete until implemented and tested.
+A PC compatibility checker and sourced creator dossiers remain planned. They will not be represented as complete until implemented and tested.
 
 ## Stack
 

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { CreatorProfile } from "@/lib/creators";
-import { gameRounds, getGameOutcome } from "@/lib/game";
+import { getRoundsForCreator, getGameOutcome } from "@/lib/game";
 
 type GamePhase = "ready" | "playing" | "complete";
 
@@ -28,11 +28,13 @@ export function CreatorGame({ creator }: CreatorGameProps) {
   );
   const [feedback, setFeedback] = useState<RoundFeedback | null>(null);
   const [letterOpen, setLetterOpen] = useState(false);
+  const [shareFeedback, setShareFeedback] = useState("");
   const timeoutHandled = useRef(false);
 
-  const activeRound = gameRounds[roundIndex];
+  const rounds = getRoundsForCreator(creator.slug);
+  const activeRound = rounds[roundIndex];
   const outcome = getGameOutcome(score, strikes);
-  const progress = ((roundIndex + 1) / gameRounds.length) * 100;
+  const progress = ((roundIndex + 1) / rounds.length) * 100;
 
   useEffect(() => {
     if (phase !== "playing" || locked) {
@@ -90,6 +92,7 @@ export function CreatorGame({ creator }: CreatorGameProps) {
     setSelectedChoiceId(null);
     setFeedback(null);
     setLetterOpen(false);
+    setShareFeedback("");
   }
 
   function chooseAnswer(choiceId: string) {
@@ -118,7 +121,7 @@ export function CreatorGame({ creator }: CreatorGameProps) {
   }
 
   function advanceRound() {
-    if (strikes >= 3 || roundIndex === gameRounds.length - 1) {
+    if (strikes >= 3 || roundIndex === rounds.length - 1) {
       setPhase("complete");
       return;
     }
@@ -129,6 +132,34 @@ export function CreatorGame({ creator }: CreatorGameProps) {
     setLocked(false);
     setSelectedChoiceId(null);
     setFeedback(null);
+  }
+
+
+  async function shareResult() {
+    const message =
+      creator.name + " / " + creator.modeTitle + ": " + score + "/" +
+      rounds.length + " correct in CREATOR ARCADE. Can you beat that?";
+    const shareData = {
+      title: creator.name + " | CREATOR ARCADE",
+      text: message,
+      url: window.location.href,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        setShareFeedback("Share sheet opened.");
+        return;
+      }
+
+      await navigator.clipboard.writeText(message + " " + window.location.href);
+      setShareFeedback("Result and link copied.");
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") {
+        return;
+      }
+      setShareFeedback("Sharing is unavailable in this browser.");
+    }
   }
 
   return (
@@ -168,11 +199,11 @@ export function CreatorGame({ creator }: CreatorGameProps) {
               <span>KEYBOARD + TOUCH</span>
             </div>
             <p className="game-kicker">THE WORKSHOP IS OPEN</p>
-            <h2 id="game-title">Bench rush.</h2>
+            <h2 id="game-title">{creator.modeTitle}.</h2>
             <p>
-              Six quick PC-building decisions. You have 12 seconds for each
-              pick and three strikes before the run ends. Get at least four
-              right to clear the challenge.
+              {creator.modeDescription} You have 12 seconds for each pick
+              and three strikes before the run ends. Get at least four right
+              to clear the challenge.
             </p>
             <div className="game-rules">
               <span>06 ROUNDS</span>
@@ -194,7 +225,7 @@ export function CreatorGame({ creator }: CreatorGameProps) {
             <div className="game-hud">
               <span>
                 ROUND {String(roundIndex + 1).padStart(2, "0")} /{" "}
-                {String(gameRounds.length).padStart(2, "0")}
+                {String(rounds.length).padStart(2, "0")}
               </span>
               <span>{score} CORRECT PICKS</span>
               <span>{Math.max(0, 3 - strikes)} STRIKES LEFT</span>
@@ -205,7 +236,7 @@ export function CreatorGame({ creator }: CreatorGameProps) {
               role="progressbar"
               aria-label="Round progress"
               aria-valuemin={0}
-              aria-valuemax={gameRounds.length}
+              aria-valuemax={rounds.length}
               aria-valuenow={roundIndex + 1}
             >
               <span style={{ width: String(progress) + "%" }} />
@@ -222,7 +253,7 @@ export function CreatorGame({ creator }: CreatorGameProps) {
             </div>
 
             <div className="game-question">
-              <p className="game-kicker">WORKSHOP SCENARIO / {activeRound.id}</p>
+              <p className="game-kicker">{creator.modeTitle.toUpperCase()} / {activeRound.id}</p>
               <h2 id="round-prompt">{activeRound.prompt}</h2>
               <p>{activeRound.context}</p>
             </div>
@@ -287,7 +318,7 @@ export function CreatorGame({ creator }: CreatorGameProps) {
                 >
                   {strikes >= 3
                     ? "See your result"
-                    : roundIndex === gameRounds.length - 1
+                    : roundIndex === rounds.length - 1
                       ? "See your result"
                       : "Continue"}
                   <span aria-hidden="true">→</span>
@@ -308,7 +339,7 @@ export function CreatorGame({ creator }: CreatorGameProps) {
                 : "The bench needs another run."}
             </h2>
             <p className="game-result-summary">
-              You made {score} correct picks out of {gameRounds.length} and
+              You made {score} correct picks out of {rounds.length} and
               collected {strikes} {strikes === 1 ? "strike" : "strikes"}.
               {outcome === "win"
                 ? " Solid work. The workshop is yours."
@@ -316,7 +347,7 @@ export function CreatorGame({ creator }: CreatorGameProps) {
             </p>
             <div className="game-result-stats">
               <div>
-                <strong>{score}/{gameRounds.length}</strong>
+                <strong>{score}/{rounds.length}</strong>
                 <span>CORRECT PICKS</span>
               </div>
               <div>
@@ -336,6 +367,13 @@ export function CreatorGame({ creator }: CreatorGameProps) {
               >
                 Open the letter <span aria-hidden="true">✉</span>
               </button>
+              <button
+                className="button button-secondary"
+                type="button"
+                onClick={shareResult}
+              >
+                Share result <span aria-hidden="true">↗</span>
+              </button>
               <Link className="button button-secondary" href="/support">
                 See laptop details <span aria-hidden="true">↗</span>
               </Link>
@@ -347,6 +385,7 @@ export function CreatorGame({ creator }: CreatorGameProps) {
                 Run it again
               </button>
             </div>
+            <p className="game-share-feedback" aria-live="polite">{shareFeedback}</p>
           </section>
         )}
       </section>

@@ -1,3 +1,5 @@
+import type { CreatorSlug } from "./creators";
+
 export const gameRounds = [
   {
     id: "storage",
@@ -152,6 +154,92 @@ export const gameRounds = [
     ],
   },
 ] as const;
+
+
+export const kayjayRounds = [
+  {
+    id: "tire-airflow",
+    prompt: "A gaming PC is going inside a car tire. What has to be solved before the first power-on?",
+    context: "A creative enclosure still has to move heat away from the components.",
+    answerId: "airflow",
+    explanation:
+      "A confined enclosure needs a deliberate intake and exhaust path, enough open area, and temperature checks under load. Sealing it can trap heat.",
+    choices: [
+      { id: "sealed", label: "Seal every opening to keep dust out", detail: "A sealed enclosure can trap heat around the hardware." },
+      { id: "airflow", label: "Plan a clear intake and exhaust path", detail: "Give cool air a route in and warm air a route out." },
+      { id: "lighting", label: "Add more RGB lighting", detail: "Lighting does not solve thermal airflow." },
+    ],
+  },
+  {
+    id: "radiator-fit",
+    prompt: "A 360 mm radiator is planned for a custom enclosure. What should you measure?",
+    context: "The advertised radiator length is only one part of the space it needs.",
+    answerId: "radiator-clearance",
+    explanation:
+      "Measure the radiator and fan stack, mounting points, nearby components, and room for tubes. The full assembly needs to fit without pressure or obstruction.",
+    choices: [
+      { id: "radiator-clearance", label: "Radiator, fan stack, mounting points and clearance", detail: "Check the complete assembly, not just the radiator." },
+      { id: "radiator-length", label: "Only the radiator's advertised length", detail: "Fans, fittings and mounting space add to the footprint." },
+      { id: "rgb-headers", label: "The motherboard's RGB header count", detail: "Headers do not tell you whether a radiator fits." },
+    ],
+  },
+  {
+    id: "gpu-clearance",
+    prompt: "A long, thick GPU must fit inside a narrow custom shell. What do you verify?",
+    context: "A card can fit on paper and still collide with a panel or power cable.",
+    answerId: "gpu-dimensions",
+    explanation:
+      "Check card length, thickness, slot space, nearby obstructions, and the bend room required by its power connector.",
+    choices: [
+      { id: "outputs", label: "Only the GPU's display outputs", detail: "Display ports do not determine physical clearance." },
+      { id: "gpu-dimensions", label: "Card length, thickness, slot space and cable bend room", detail: "Check the whole installed footprint, including the power cable." },
+      { id: "fan-count", label: "Only the number of case fans", detail: "Fan count does not confirm GPU fit." },
+    ],
+  },
+  {
+    id: "power-budget",
+    prompt: "A powerful GPU is paired with a high-draw CPU. How should the power supply be chosen?",
+    context: "The connector fitting is not proof that the unit is suitable.",
+    answerId: "quality-psu",
+    explanation:
+      "Use the component makers' guidance, account for total system demand and connector requirements, and choose a reputable PSU with suitable capacity and protections.",
+    choices: [
+      { id: "big-number", label: "Pick the biggest wattage number, regardless of quality", detail: "A large label alone says little about build quality or protections." },
+      { id: "reuse", label: "Reuse any PSU if its plug fits", detail: "Matching plugs do not guarantee safe capacity or wiring." },
+      { id: "quality-psu", label: "Check system load, connectors and PSU quality", detail: "Capacity, cable requirements and quality all matter." },
+    ],
+  },
+  {
+    id: "board-mount",
+    prompt: "A motherboard is going onto a custom metal panel. What must be fitted first?",
+    context: "The board should not rest directly against conductive metal.",
+    answerId: "standoffs",
+    explanation:
+      "Use the correct motherboard standoffs aligned with the board's mounting holes. They create the required clearance and help prevent shorts.",
+    choices: [
+      { id: "direct", label: "Mount the board directly on the metal", detail: "Direct contact can create an electrical short." },
+      { id: "standoffs", label: "Install the correct standoffs at the mounting points", detail: "The standoffs keep the board safely clear of the panel." },
+      { id: "foam", label: "Use ordinary foam tape as a spacer", detail: "Unspecified adhesive is not a substitute for proper standoffs." },
+    ],
+  },
+  {
+    id: "first-post",
+    prompt: "Before closing a one-off enclosure, what is the smart first build check?",
+    context: "Find fit, wiring and boot problems while the parts are still accessible.",
+    answerId: "bench-test",
+    explanation:
+      "A controlled POST test on a stable, non-conductive surface helps confirm the core parts and wiring before final assembly. Then verify temperatures with the enclosure installed.",
+    choices: [
+      { id: "sealed-first", label: "Power it once with every panel sealed", detail: "That makes faults harder to inspect and can hide airflow problems." },
+      { id: "carpet", label: "Place it on carpet and test all the fans", detail: "Carpet is not a suitable electronics test surface." },
+      { id: "bench-test", label: "POST on a stable, non-conductive test surface", detail: "Check the core hardware before the final enclosure fit." },
+    ],
+  },
+] as const;
+
+export function getRoundsForCreator(slug: CreatorSlug) {
+  return slug === "kayjayohpcs" ? kayjayRounds : gameRounds;
+}
 
 export type GameOutcome = "win" | "loss";
 

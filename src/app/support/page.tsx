@@ -49,9 +49,10 @@ export default function SupportPage() {
               software.
             </p>
             <p>
-              The request is simple: help source the target machine directly,
-              or get in touch to discuss a private contribution. There is no
-              checkout, payment form, or public fundraising counter here.
+              The request is direct: help source this machine or a comparable
+              one. There is no payment form, checkout, donation counter, or
+              public fundraising tally. A supporter can arrange a laptop
+              directly or contact me before discussing any contribution.
             </p>
           </div>
         </div>
@@ -63,9 +64,69 @@ export default function SupportPage() {
         </div>
       </section>
 
+      <section className="support-proof section-wrap" aria-labelledby="support-proof-title">
+        <div className="support-proof-heading">
+          <p className="eyebrow">02 / Work already in public</p>
+          <h2 id="support-proof-title">Not a project<br /><span>that exists only on paper.</span></h2>
+          <p>
+            These public repositories show software I have already designed
+            and built. Each one can be inspected before anyone decides whether
+            to help.
+          </p>
+        </div>
+        <div className="support-proof-grid">
+          <article>
+            <span>01 / SECURITY WORKBENCH</span>
+            <h3>NetRecon</h3>
+            <p>
+              A Python and Flask reconnaissance workbench for DNS, TLS, web
+              security posture and scoped network checks, with explicit
+              safeguards around active probing.
+            </p>
+            <a href="https://github.com/JoeBuildsThings/NetRecon" target="_blank" rel="noreferrer">
+              Inspect source <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+          <article>
+            <span>02 / ANDROID APPLICATION</span>
+            <h3>Frost Music Player</h3>
+            <p>
+              An offline-first Android music player built with Kotlin,
+              Jetpack Compose and Media3, with background playback and
+              on-device library management.
+            </p>
+            <a href="https://github.com/JoeBuildsThings/frost-music-player" target="_blank" rel="noreferrer">
+              Inspect source <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+          <article>
+            <span>03 / AI TOOLING</span>
+            <h3>JOEBOT</h3>
+            <p>
+              A terminal AI agent with project tools, provider fallback and
+              an approval gate before file writes or shell commands.
+            </p>
+            <a href="https://github.com/JoeBuildsThings/joebot" target="_blank" rel="noreferrer">
+              Inspect source <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+          <article>
+            <span>04 / E-COMMERCE</span>
+            <h3>Synsorempire</h3>
+            <p>
+              A storefront with a managed product catalogue, private admin
+              area and WhatsApp order flow for a local fashion retailer.
+            </p>
+            <a href="https://github.com/JoeBuildsThings/synsorempire" target="_blank" rel="noreferrer">
+              Inspect source <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+      </section>
+
       <section className="support-main section-wrap">
         <div className="support-copy">
-          <p className="eyebrow">02 / The target</p>
+          <p className="eyebrow">03 / The target</p>
           <h2>One specific<br /><span>workstation goal.</span></h2>
           <p className="support-explainer">
             The target is a refurbished Lenovo ThinkPad T14 Gen 2 AMD with a
@@ -74,10 +135,16 @@ export default function SupportPage() {
             has the same parts.
           </p>
           <p className="support-explainer">
-            Lenovo&apos;s specification record lists the reference machine
-            type below as withdrawn. The request is therefore for a verified
-            used or refurbished unit. Other regional machine types are fine
-            when the actual specifications match.
+            Lenovo lists the reference machine type below as withdrawn, so
+            this is a request for a verified used or refurbished unit. Other
+            regional machine types are fine when the actual specifications
+            match.
+          </p>
+          <p className="support-explainer">
+            This configuration uses integrated Radeon graphics, not a
+            dedicated gaming GPU. I am asking for a practical development
+            machine for web projects, local builds, browser testing and
+            Android work, not claiming it is a high-end Unreal workstation.
           </p>
           <a
             className="text-link"
@@ -117,7 +184,7 @@ export default function SupportPage() {
       <section className="support-options section-wrap">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">03 / Ways to help</p>
+            <p className="eyebrow">04 / Ways to help</p>
             <h2>Two straightforward<br /><span>ways to make it happen.</span></h2>
           </div>
           <p className="section-intro">
@@ -150,7 +217,7 @@ export default function SupportPage() {
 
       <section className="inspection-section section-wrap">
         <div className="inspection-heading">
-          <p className="eyebrow">04 / Before any purchase</p>
+          <p className="eyebrow">05 / Before any purchase</p>
           <h2>Check the actual<br /><span>machine, not the listing.</span></h2>
           <p>
             Refurbished laptops can differ significantly in condition. These
@@ -169,17 +236,26 @@ export default function SupportPage() {
 
       <section className="contact-placeholder section-wrap" id="contact">
         <div>
-          <p className="eyebrow">05 / Start a conversation</p>
-          <h2>Contact details<br /><span>being finalized.</span></h2>
+          <p className="eyebrow">06 / Start a conversation</p>
+          <h2>Talk to me<br /><span>directly.</span></h2>
           <p>
-            Verified WhatsApp, email, and social contact links will be added
-            here before this request is actively promoted. Please do not send
-            money to an account found in an unrelated comment or message.
+            For a laptop offer, a question about the specifications, or a
+            private conversation about support, contact me through my public
+            professional profile. Please do not send money to an account
+            found in an unrelated comment or message.
           </p>
+          <div className="support-contact-actions">
+            <a className="button button-primary" href="https://www.linkedin.com/in/joseph-ayomide-adebiyi-5bb66844b/" target="_blank" rel="noreferrer">
+              Message me on LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+            <a className="support-contact-secondary" href="https://github.com/JoeBuildsThings" target="_blank" rel="noreferrer">
+              View my GitHub profile <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
         <div className="contact-placeholder-tag">
           <span className="contact-dot" />
-          CONTACT CHANNELS NOT PUBLISHED YET
+          PUBLIC CONTACT / LINKEDIN + GITHUB
         </div>
       </section>
 
