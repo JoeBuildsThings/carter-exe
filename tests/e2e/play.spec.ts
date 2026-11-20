@@ -15,8 +15,8 @@ test("visitors can choose between both accurately named creator editions", async
     page.getByRole("link", { name: /play the kayjayohpcs edition/i }),
   ).toHaveAttribute("href", "/play/kayjayohpcs/");
 
-  await expect(page.getByText(/Tech Quickfire/i)).toBeVisible();
-  await expect(page.getByText(/Odd Build Lab/i)).toBeVisible();
+  await expect(page.locator(".creator-card-kicker").filter({ hasText: "Tech Quickfire" })).toBeVisible();
+  await expect(page.locator(".creator-card-kicker").filter({ hasText: "Odd Build Lab" })).toBeVisible();
   await expect(page.getByRole("link", { name: /creator background \/ micro center/i }).first()).toHaveAttribute("href", /microcenter\.com/);
 
   await expect(
