@@ -26,8 +26,8 @@ export default function PlayPage() {
           <span>player.</span>
         </h1>
         <p>
-          Two creators, two different challenge banks. Take Carter's
-          everyday PC and tech quickfire, or step into KayJay's custom-build
+          Two creators, two different challenge banks. Take Carter&apos;s
+          everyday PC and tech quickfire, or step into KayJay&apos;s custom-build
           lab where fit, airflow and power decisions matter.
         </p>
       </section>
