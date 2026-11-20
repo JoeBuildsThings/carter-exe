@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "CARTER.EXE | An Independent Fan Project",
+    default: "CARTER.EXE | Independent CarterPCs Fan Project",
     template: "%s | CARTER.EXE",
   },
   description: siteConfig.description,
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#090d0d",
-  colorScheme: "dark",
+  themeColor: "#e9e6dc",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
