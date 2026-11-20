@@ -1,64 +1,75 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { creatorProfiles } from "@/lib/creators";
+import { creatorRoster } from "@/lib/creators";
 
 export const metadata: Metadata = {
   title: "Choose a Creator",
   description:
-    "Choose a CarterPCs or KayJahoPC creator edition and play the Bench Rush browser challenge.",
+    "Choose a CarterPCs or KayJayOhPCs edition and play the independent Bench Rush PC hardware challenge.",
 };
-
-const creators = [
-  creatorProfiles.carterpcs,
-  creatorProfiles.kayjahopc,
-] as const;
 
 export default function PlayPage() {
   return (
     <main id="main-content" className="play-page">
       <div className="play-topline">
-        <p className="play-eyebrow">ARCADE ACCESS / CARTER.EXE</p>
-        <span>SELECT YOUR CREATOR / 02 EDITIONS</span>
+        <p className="play-eyebrow">CREATOR ARCADE / ROUTE SELECT</p>
+        <span>
+          SELECT YOUR CREATOR / {String(creatorRoster.length).padStart(2, "0")} LIVE ROUTES
+        </span>
       </div>
 
       <section className="play-intro" aria-labelledby="play-title">
-        <p className="play-kicker">THE WORKSHOP IS OPEN</p>
+        <p className="play-kicker">THE BENCH IS OPEN</p>
         <h1 id="play-title">
           Pick your
           <br />
           <span>player.</span>
         </h1>
         <p>
-          Two creator editions. One component challenge. Choose the route
-          you want to play, then see how well you handle the workshop.
+          Choose a creator edition. Every route runs the same six-round
+          hardware challenge, with its own creator identity and public
+          profile link.
         </p>
       </section>
 
       <section className="creator-selection" aria-label="Choose a creator">
-        {creators.map((creator, index) => (
+        {creatorRoster.map((creator, index) => (
           <article
             className={"creator-card creator-card-" + creator.variant}
             key={creator.slug}
           >
             <div className="creator-card-topline">
               <span>{creator.label}</span>
-              <span>0{index + 1} / 02</span>
+              <span>
+                {String(index + 1).padStart(2, "0")} /{" "}
+                {String(creatorRoster.length).padStart(2, "0")}
+              </span>
             </div>
             <div className="creator-card-mark" aria-hidden="true">
               {creator.initial}
             </div>
             <div className="creator-card-copy">
-              <p className="creator-card-kicker">CREATOR ROUTE</p>
+              <p className="creator-card-kicker">{creator.category}</p>
               <h2>{creator.name}</h2>
               <p>{creator.description}</p>
             </div>
-            <Link
-              className="creator-card-link"
-              href={"/play/" + creator.slug}
-              aria-label={"Play the " + creator.name + " edition"}
-            >
-              Enter this edition <span aria-hidden="true">↗</span>
-            </Link>
+            <div className="creator-route-actions">
+              <Link
+                className="creator-card-link"
+                href={"/play/" + creator.slug}
+                aria-label={"Play the " + creator.name + " edition"}
+              >
+                Enter this edition <span aria-hidden="true">↗</span>
+              </Link>
+              <a
+                className="creator-profile-link"
+                href={creator.profileUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Public profile: {creator.handle} <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </article>
         ))}
       </section>
