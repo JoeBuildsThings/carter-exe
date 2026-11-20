@@ -1,8 +1,8 @@
 {
-  "name": "carter-exe",
+  "name": "creator-arcade",
   "version": "0.1.0",
   "private": true,
-  "description": "An unofficial, browser-based CarterPCs fan project.",
+  "description": "An independent PC creator arcade with playable creator editions.",
   "engines": {
     "node": ">=22.13.0 <23",
     "npm": ">=10"
