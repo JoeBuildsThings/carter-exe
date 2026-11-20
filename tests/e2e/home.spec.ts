@@ -53,6 +53,8 @@ test("support page explains the target machine and safe support options", async 
   await expect(page.getByRole("link", { name: /message me on linkedin/i })).toHaveAttribute("href", "https://www.linkedin.com/in/joseph-ayomide-adebiyi-5bb66844b/");
   await expect(page.getByRole("link", { name: /carterpcs team/i })).toHaveAttribute("href", /mailto:Carterpcs@rakugomedia\.com/);
   await expect(page.getByRole("link", { name: /kayjayohpcs/i })).toHaveAttribute("href", /mailto:kayjayohpcs@gmail\.com/);
+  await expect(page.getByRole("link", { name: /verify carter.s public contact/i })).toHaveAttribute("href", "https://link.me/carterpcs_");
+  await expect(page.getByRole("link", { name: /verify kayjay.s public business listing/i })).toHaveAttribute("href", "https://www.youtube.com/@Kayjayohpcs");
 
   await expect(
     page.getByRole("link", { name: /official specification record/i }),

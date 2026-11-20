@@ -261,10 +261,16 @@ export default function SupportPage() {
             </p>
             <div className="support-contact-actions">
               <a className="support-contact-secondary" href="mailto:Carterpcs@rakugomedia.com?subject=CREATOR%20ARCADE%20%7C%20Laptop%20support%20request">
-                CarterPCs team <span aria-hidden="true">↗</span>
+                CarterPCs team inbox <span aria-hidden="true">↗</span>
+              </a>
+              <a className="support-contact-secondary" href="https://link.me/carterpcs_" target="_blank" rel="noreferrer">
+                Verify Carter&apos;s public contact <span aria-hidden="true">↗</span>
               </a>
               <a className="support-contact-secondary" href="mailto:kayjayohpcs@gmail.com?subject=CREATOR%20ARCADE%20%7C%20Laptop%20support%20request">
-                KayJayOhPCs <span aria-hidden="true">↗</span>
+                KayJayOhPCs business inbox <span aria-hidden="true">↗</span>
+              </a>
+              <a className="support-contact-secondary" href="https://www.youtube.com/@Kayjayohpcs" target="_blank" rel="noreferrer">
+                Verify KayJay&apos;s public business listing <span aria-hidden="true">↗</span>
               </a>
             </div>
           </div>
