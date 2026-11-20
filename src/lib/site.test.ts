@@ -11,6 +11,7 @@ describe("site configuration", () => {
     const destinations = navigationItems.map((item) => item.href);
 
     expect(new Set(destinations).size).toBe(destinations.length);
+    expect(destinations).toContain("/play");
     expect(destinations).toContain("/support");
     expect(destinations).toContain("/hire");
   });

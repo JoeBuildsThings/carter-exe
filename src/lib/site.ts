@@ -9,6 +9,7 @@ export const siteConfig = {
 } as const;
 
 export const navigationItems = [
+  { label: "Play", href: "/play" },
   { label: "The build", href: "/#build" },
   { label: "Why it exists", href: "/#approach" },
   { label: "Support", href: "/support" },
