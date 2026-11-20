@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("visitors can choose between both creator editions", async ({ page }) => {
+test("visitors can choose between both accurately named creator editions", async ({ page }) => {
   await page.goto("/play");
 
   await expect(
@@ -12,8 +12,12 @@ test("visitors can choose between both creator editions", async ({ page }) => {
   ).toHaveAttribute("href", "/play/carterpcs/");
 
   await expect(
-    page.getByRole("link", { name: /play the kayjahopc edition/i }),
-  ).toHaveAttribute("href", "/play/kayjahopc/");
+    page.getByRole("link", { name: /play the kayjayohpcs edition/i }),
+  ).toHaveAttribute("href", "/play/kayjayohpcs/");
+
+  await expect(
+    page.getByRole("link", { name: /public profile: @kayjayohpcs/i }),
+  ).toHaveAttribute("href", "https://www.tiktok.com/@kayjayohpcs");
 });
 
 test("a winning run unlocks the letter", async ({ page }) => {
@@ -64,8 +68,12 @@ test("a winning run unlocks the letter", async ({ page }) => {
   ).toHaveAttribute("href", "/support/");
 });
 
-test("a lost run can still open the letter", async ({ page }) => {
-  await page.goto("/play/kayjahopc/");
+test("a lost KayJayOhPCs run can still open the letter", async ({ page }) => {
+  await page.goto("/play/kayjayohpcs/");
+
+  await expect(
+    page.getByRole("heading", { name: /kayjayohpcs challenge/i }),
+  ).toBeVisible();
 
   await page.getByRole("button", { name: /start the challenge/i }).click();
 

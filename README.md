@@ -1,29 +1,32 @@
-# CARTER.EXE
+# CREATOR ARCADE
 
-An unofficial, browser-based fan project dedicated to CarterPCs.
+An independent, browser-based PC creator arcade.
 
-CARTER.EXE has two independent goals:
+The project has two goals:
 
-- Create a respectful opportunity for Carter or someone in his audience to help with a development-laptop upgrade.
-- Publish a substantial, working engineering project that demonstrates the ability to design and ship useful web experiences for prospective freelance clients.
+- Give PC and tech communities a small, playable experience inspired by featured creators.
+- Ship a substantial, reviewable web product that demonstrates real engineering work.
 
-The project is independent and is not affiliated with CarterPCs, Rakugo Media, or Lenovo. No endorsement is claimed.
+The project is unofficial and independent. It is not affiliated with or endorsed by any featured creator, their partners, or Lenovo.
 
-## Current status
+## Current lineup
 
-Phase 2: creator arcade.
+- CarterPCs: @carterpcs on TikTok.
+- KayJayOhPCs: @kayjayohpcs on TikTok.
 
-Available routes and features:
+Creator details and links are kept in src/lib/creators.ts, separate from the reusable game engine. New creator editions can be added to the roster without duplicating the gameplay component.
 
-- /play: choose the CarterPCs or KayJahoPC creator edition.
-- /play/carterpcs: play the CarterPCs edition of Bench Rush.
-- /play/kayjahopc: play the KayJahoPC edition of Bench Rush.
-- Six timed PC component questions, touch and keyboard accessible controls, a three-strike limit, and a clear win/loss result.
-- An optional letter available after either outcome, with a transparent laptop request and a link to the workstation support page.
-- /support: target laptop specifications, inspection checklist, and direct support options.
+## Current features
+
+- /play: choose a creator edition.
+- /play/carterpcs: CarterPCs edition of Bench Rush.
+- /play/kayjayohpcs: KayJayOhPCs edition of Bench Rush.
+- /support: development-laptop specifications, inspection guidance, and direct support options.
 - /hire: separate information for paid development enquiries.
 
-The PC compatibility checker and sourced creator dossier remain planned. They will not be described as complete until implemented and tested.
+Bench Rush contains six timed PC hardware decisions, accessible touch and keyboard controls, answer feedback, a three-strike limit, and a clear result. The optional letter can be opened after either a win or a loss. There is no payment collection.
+
+The PC compatibility checker and sourced creator dossier remain planned. They will not be represented as complete until implemented and tested.
 
 ## Stack
 
@@ -34,7 +37,7 @@ The PC compatibility checker and sourced creator dossier remain planned. They wi
 - Playwright for browser tests
 - GitHub Actions for continuous integration
 
-The site is designed as a static browser experience. It does not require an application backend, database, authentication, or payment processing.
+The site is a static browser experience. It does not require an application backend, database, authentication, or payment processing.
 
 ## Local development
 
@@ -67,7 +70,7 @@ The production static export is generated in out/.
 
 ## Deployment
 
-The repository is prepared for static deployment. The Vercel Git integration and production deployment will be configured after the hosting plan and project settings are confirmed.
+The project is prepared for static deployment. Production deployment settings remain separate from this feature branch.
 
 ## License
 
