@@ -252,6 +252,22 @@ export default function SupportPage() {
               View my GitHub profile <span aria-hidden="true">↗</span>
             </a>
           </div>
+          <div className="creator-contact-block">
+            <p className="eyebrow">PUBLIC CREATOR BUSINESS CONTACTS</p>
+            <p>
+              These addresses are listed publicly for business enquiries.
+              They are simply contact routes, not an indication of support
+              or endorsement. A single, respectful message is enough.
+            </p>
+            <div className="support-contact-actions">
+              <a className="support-contact-secondary" href="mailto:Carterpcs@rakugomedia.com?subject=CREATOR%20ARCADE%20%7C%20Laptop%20support%20request">
+                CarterPCs team <span aria-hidden="true">↗</span>
+              </a>
+              <a className="support-contact-secondary" href="mailto:kayjayohpcs@gmail.com?subject=CREATOR%20ARCADE%20%7C%20Laptop%20support%20request">
+                KayJayOhPCs <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
         </div>
         <div className="contact-placeholder-tag">
           <span className="contact-dot" />

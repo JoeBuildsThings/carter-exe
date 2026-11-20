@@ -51,6 +51,8 @@ test("support page explains the target machine and safe support options", async 
   await expect(page.getByRole("heading", { name: /not a project that exists only on paper/i })).toBeVisible();
   await expect(page.getByRole("link", { name: /inspect source/i }).first()).toHaveAttribute("href", "https://github.com/JoeBuildsThings/NetRecon");
   await expect(page.getByRole("link", { name: /message me on linkedin/i })).toHaveAttribute("href", "https://www.linkedin.com/in/joseph-ayomide-adebiyi-5bb66844b/");
+  await expect(page.getByRole("link", { name: /carterpcs team/i })).toHaveAttribute("href", /mailto:Carterpcs@rakugomedia\.com/);
+  await expect(page.getByRole("link", { name: /kayjayohpcs/i })).toHaveAttribute("href", /mailto:kayjayohpcs@gmail\.com/);
 
   await expect(
     page.getByRole("link", { name: /official specification record/i }),
