@@ -46,6 +46,7 @@ test("support page explains the target machine and safe support options", async 
 
   await expect(page.getByText(/Ryzen 5 PRO 5650U/i).first()).toBeVisible();
   await expect(page.getByText(/16GB soldered DDR4-3200/i)).toBeVisible();
+  await expect(page.getByText(/up to 48GB on supported configurations/i)).toBeVisible();
   await expect(page.getByText(/there is no payment form/i)).toBeVisible();
   await expect(page.locator(".support-disclaimer")).toContainText(/any featured creator/i);
   await expect(page.getByRole("heading", { name: /not a project that exists only on paper/i })).toBeVisible();

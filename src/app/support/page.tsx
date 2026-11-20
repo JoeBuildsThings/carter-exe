@@ -11,6 +11,7 @@ const targetSpecs = [
   ["Reference machine type", "20XK00BGUS"],
   ["Processor", "AMD Ryzen 5 PRO 5650U · 6 cores / 12 threads"],
   ["Memory", "16GB soldered DDR4-3200"],
+  ["Memory expansion", "Up to 48GB on supported configurations"],
   ["Storage", "512GB M.2 2280 PCIe NVMe SSD"],
   ["Display", "14-inch FHD IPS"],
 ] as const;
@@ -145,6 +146,12 @@ export default function SupportPage() {
             dedicated gaming GPU. I am asking for a practical development
             machine for web projects, local builds, browser testing and
             Android work, not claiming it is a high-end Unreal workstation.
+          </p>
+          <p className="support-explainer">
+            The T14 Gen 2 AMD family also has configurations with a memory
+            slot and supports up to 48GB when paired with 16GB soldered RAM
+            and a 32GB module. That depends on the exact machine type, so the
+            individual unit must be checked before purchase.
           </p>
           <a
             className="text-link"
