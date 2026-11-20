@@ -86,3 +86,26 @@ test("mobile homepage has no horizontal overflow", async ({ page }) => {
 
   expect(dimensions.content).toBeLessThanOrEqual(dimensions.viewport);
 });
+
+test("production export includes the global design system", async ({ page }) => {
+  const failedStylesheets: string[] = [];
+  page.on("requestfailed", (request) => {
+    if (request.resourceType() === "stylesheet") {
+      failedStylesheets.push(request.url());
+    }
+  });
+
+  await page.goto("/");
+
+  await expect(page.locator("body")).toHaveCSS(
+    "background-color",
+    "rgb(233, 230, 220)",
+  );
+  await expect(page.locator(".site-header")).toHaveCSS("display", "grid");
+  await expect(page.locator(".button").first()).toHaveCSS(
+    "display",
+    "inline-flex",
+  );
+  expect(await page.locator('link[rel="stylesheet"]').count()).toBeGreaterThan(0);
+  expect(failedStylesheets).toEqual([]);
+});

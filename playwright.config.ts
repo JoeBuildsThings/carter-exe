@@ -15,10 +15,10 @@ export default defineConfig({
     ...devices["Desktop Chrome"],
   },
   webServer: {
-    command: "npm run dev -- --hostname 127.0.0.1",
+    command: "npm run build && node scripts/serve-static.mjs",
     url: "http://127.0.0.1:3000",
     reuseExistingServer: !isCI,
-    timeout: 120_000,
+    timeout: 180_000,
     env: {
       NEXT_TELEMETRY_DISABLED: "1",
     },
