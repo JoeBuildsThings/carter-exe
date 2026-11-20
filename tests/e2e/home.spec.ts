@@ -103,8 +103,12 @@ test("production export includes the global design system", async ({ page }) => 
   );
   await expect(page.locator(".site-header")).toHaveCSS("display", "grid");
   await expect(page.locator(".button").first()).toHaveCSS(
-    "display",
-    "inline-flex",
+    "min-height",
+    "48px",
+  );
+  await expect(page.locator(".button").first()).toHaveCSS(
+    "align-items",
+    "center",
   );
   expect(await page.locator('link[rel="stylesheet"]').count()).toBeGreaterThan(0);
   expect(failedStylesheets).toEqual([]);
