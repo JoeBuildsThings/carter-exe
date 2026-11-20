@@ -32,8 +32,8 @@ test("the main project sections are present and reachable", async ({
   await expect(page.locator("#approach")).toBeVisible();
 
   await expect(
-    page.getByRole("link", { name: /explore the build/i }),
-  ).toHaveAttribute("href", "#build");
+    page.getByRole("link", { name: /choose your creator/i }),
+  ).toHaveAttribute("href", "/play");
 });
 
 test("support page explains the target machine and safe support options", async ({

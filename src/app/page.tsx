@@ -4,11 +4,11 @@ import { siteConfig } from "@/lib/site";
 const modules = [
   {
     number: "01",
-    category: "PLAY / CANVAS",
-    title: "Carter Dash",
+    category: "PLAY / CREATOR ARCADE",
+    title: "Creator arcade: Bench Rush",
     description:
-      "A compact browser game built around timing, quick decisions, and PC culture. Designed to run smoothly on modest devices.",
-    status: "Planned",
+      "Choose the CarterPCs or KayJahoPC edition, then tackle a timed six-round PC component challenge built for keyboard and touch.",
+    status: "Available",
   },
   {
     number: "02",
@@ -32,7 +32,7 @@ const modules = [
     title: "Workstation support",
     description:
       "A respectful, transparent request for help with a development laptop. Direct conversations only. No checkout or payment handling.",
-    status: "Planned",
+    status: "Available",
   },
 ] as const;
 
@@ -59,13 +59,13 @@ export default function HomePage() {
 
             <p className="hero-description">
               An independent, unofficial experience inspired by CarterPCs.
-              We&apos;re putting together a browser game, a useful PC
-              compatibility tool, and a carefully sourced creator dossier.
+              Choose between two creator editions and play a PC component
+              challenge, with more useful hardware and research tools planned next.
             </p>
 
             <div className="hero-actions">
-              <Link className="button button-primary" href="#build">
-                Explore the build <span aria-hidden="true">↘</span>
+              <Link className="button button-primary" href="/play">
+                Choose your creator <span aria-hidden="true">↗</span>
               </Link>
               <a
                 className="button button-secondary"
@@ -213,8 +213,7 @@ export default function HomePage() {
             <h2>Four pieces.<br /><span>One clear purpose.</span></h2>
           </div>
           <p className="section-intro">
-            This is the roadmap, not a list of finished features. Each part
-            earns its place by being useful, properly built, and tested.
+            The creator arcade is playable now. The remaining modules stay on the roadmap until they are implemented, checked, and ready to use.
           </p>
         </div>
 
@@ -250,9 +249,7 @@ export default function HomePage() {
               <p className="outcome-label">THE OPPORTUNITY</p>
               <h3>Open a genuine conversation about a development laptop.</h3>
               <p>
-                A dedicated support page will explain the need, the intended
-                machine, and how someone can discuss direct help privately.
-                No pressure, fake progress bars, or payment collection.
+                The support page explains the laptop target, practical inspection checks, and ways to discuss direct help privately. No pressure, fake progress bars, or payment collection.
               </p>
             </div>
           </article>
@@ -263,9 +260,7 @@ export default function HomePage() {
               <p className="outcome-label">THE PROOF</p>
               <h3>Show the engineering, not just the screenshots.</h3>
               <p>
-                The finished product will give prospective clients something
-                real to inspect: a browser game, a hardware tool, thoughtful
-                content, and a documented build process.
+                The project already includes a playable browser challenge and a documented support experience. Hardware research and the creator dossier remain planned work.
               </p>
             </div>
           </article>
