@@ -138,7 +138,7 @@ export function CreatorGame({ creator }: CreatorGameProps) {
           <span aria-hidden="true">←</span> Change creator
         </Link>
         <span className="play-topline-note">
-          INDEPENDENT FAN EXPERIENCE / NOT AN OFFICIAL CREATOR GAME
+          CREATOR ARCADE / INDEPENDENT FAN EXPERIENCE
         </span>
       </div>
 
@@ -148,7 +148,7 @@ export function CreatorGame({ creator }: CreatorGameProps) {
       >
         <header className="creator-game-heading">
           <div>
-            <p className="play-eyebrow">{creator.label} / CARTER.EXE</p>
+            <p className="play-eyebrow">{creator.label} / CREATOR ARCADE</p>
             <h1 id="creator-game-title">
               {creator.name}
               <span> challenge.</span>

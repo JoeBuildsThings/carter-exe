@@ -184,8 +184,9 @@ export default function SupportPage() {
       </section>
 
       <p className="support-disclaimer section-wrap">
-        CARTER.EXE is an independent fan project. It is not affiliated with,
-        sponsored by, or endorsed by CarterPCs, Rakugo Media, or Lenovo.
+        CREATOR ARCADE is an independent fan-made project. It is not affiliated
+        with, sponsored by, or endorsed by any featured creator, their partners,
+        or Lenovo.
       </p>
     </main>
   );
