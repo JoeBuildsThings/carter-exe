@@ -47,6 +47,8 @@ jobs:
           test -f out/index.html
           test -f out/404.html
           test -f out/_headers
+          test -d out/_next/static
+          find out/_next/static -type f -name "*.css" -print -quit | grep -q .
 
   browser:
     name: Browser smoke tests
