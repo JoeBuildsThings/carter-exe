@@ -7,10 +7,11 @@ describe("site configuration", () => {
     expect(siteConfig.githubUrl).toMatch(/^https:\/\/github\.com\//);
   });
 
-  it("uses unique in-page navigation targets", () => {
-    const targets = navigationItems.map((item) => item.href);
+  it("has unique navigation destinations", () => {
+    const destinations = navigationItems.map((item) => item.href);
 
-    expect(new Set(targets).size).toBe(targets.length);
-    expect(targets.every((target) => target.startsWith("#"))).toBe(true);
+    expect(new Set(destinations).size).toBe(destinations.length);
+    expect(destinations).toContain("/support");
+    expect(destinations).toContain("/hire");
   });
 });
