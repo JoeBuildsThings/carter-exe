@@ -6,8 +6,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "CARTER.EXE | Independent CarterPCs Fan Project",
-    template: "%s | CARTER.EXE",
+    default: "CREATOR ARCADE | PC culture, made playable",
+    template: "%s | CREATOR ARCADE",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,

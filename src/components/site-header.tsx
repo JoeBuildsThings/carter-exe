@@ -4,9 +4,9 @@ import { navigationItems, siteConfig } from "@/lib/site";
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <Link className="brand" href="/" aria-label="CARTER.EXE home">
+      <Link className="brand" href="/" aria-label="Creator Arcade home">
         <span className="brand-mark" aria-hidden="true">
-          C<span>.</span>
+          C<span>/</span>A
         </span>
         <span className="brand-name">{siteConfig.name}</span>
       </Link>
@@ -25,7 +25,7 @@ export function SiteHeader() {
         target="_blank"
         rel="noreferrer"
       >
-        Source code <span aria-hidden="true">↗</span>
+        Inspect the build <span aria-hidden="true">↗</span>
       </a>
     </header>
   );
